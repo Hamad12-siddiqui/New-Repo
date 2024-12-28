@@ -39,13 +39,7 @@ function App() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-md shadow-lg w-96">
-        <div className="flex justify-center mb-6">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-            alt="Instagram Logo"
-            className="h-12"
-          />
-        </div>
+        
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-gray-700 mb-1" htmlFor="username">Username or Email</label>
@@ -84,30 +78,13 @@ function App() {
           <div className="w-1/3 border-t border-gray-300"></div>
         </div>
         <div className="flex justify-center">
-          <button className="flex items-center text-blue-500 space-x-2 hover:underline">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-              alt="Facebook Logo"
-              className="h-5"
-            />
-            <span>Log in with Facebook</span>
-          </button>
+         
         </div>
         <p className="text-sm text-center text-gray-500 mt-4">
           Forgot your password?
         </p>
       </div>
-      <div className="mt-4">
-        <p className="text-center text-sm">
-          Don’t have an account?{' '}
-          <a
-            href="#"
-            className="text-blue-500 hover:underline"
-          >
-            Sign up
-          </a>
-        </p>
-      </div>
+      
     </div>
   );
 }
