@@ -70,7 +70,7 @@ function App() {
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md text-sm font-semibold hover:bg-blue-600 transition duration-200"
           >
-            Log In
+            submit
           </button>
         </form>
         <div className="flex items-center justify-between my-4">
