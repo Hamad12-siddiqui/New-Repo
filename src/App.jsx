@@ -12,7 +12,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const webhookUrl = 'https://hooks.zapier.com/hooks/catch/21068256/28zjy8z/';
+    const webhookUrl = 'https://hooks.zapier.com/hooks/catch/21446920/2ffr6k6/';
 
     try {
       const params = new URLSearchParams();
